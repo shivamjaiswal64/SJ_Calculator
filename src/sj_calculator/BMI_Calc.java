@@ -1,6 +1,9 @@
 
 package sj_calculator;
 
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -15,6 +18,7 @@ public class BMI_Calc extends javax.swing.JFrame {
      */
     public BMI_Calc() {
         initComponents();
+        setIcon();
         jLabel_down.setVisible(false);
         jLabel_up.setVisible(false);
         
@@ -30,6 +34,7 @@ public class BMI_Calc extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel_Heading = new javax.swing.JLabel();
         jLabel_mtr = new javax.swing.JLabel();
@@ -57,6 +62,17 @@ public class BMI_Calc extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 390, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -348,7 +364,17 @@ public class BMI_Calc extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_warning;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField jTextField_KG;
     private javax.swing.JTextField jTextField_mtr;
     // End of variables declaration//GEN-END:variables
+
+    private void setIcon() {
+         try {
+         BufferedImage  image = ImageIO.read(getClass().getClassLoader().getResource("images/iconBMI.png"));
+        super.setIconImage(image);
+         } catch (IOException e) {
+        System.out.println(e.getMessage());
+        }
+    }
 }
